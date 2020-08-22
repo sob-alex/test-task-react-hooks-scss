@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Authorization from './components/authorization/Authorization';
+import { AppContext } from './context/appContext';
+import Sidebar from './components/sidebar/Sidebar';
+import Home from './components/Home';
+import Terminals from './components/terminals/Terminals';
+import Buyers from './components/buyers/Buyers';
+import Buyer from './components/buyers/Buyer';
+import Page404 from './components/Page404';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { state } = useContext(AppContext);
+  console.log(state);
+  if (state.isAutoruzationComponentShown)
+    return (
+      <div className="App">
+        <Authorization />
+      </div>
+    );
+  else
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Sidebar />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/terminals' component={Terminals} />
+            <Route path='/buyers' exact component={Buyers} />
+            <Route path='/buyers/:id' component={Buyer}></Route>
+            <Route path="*" component={Page404}/>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
 }
 
 export default App;

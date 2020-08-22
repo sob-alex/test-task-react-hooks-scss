@@ -1,0 +1,31 @@
+.home {
+  @include adjust_container;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .home__inner {
+    padding: 22px 75px;
+    background-color: white;
+    border: 0.5px solid #ccc;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+    .home {
+      margin-left: 0;
+      padding: 20px 35px;
+      .home__inner {
+        padding: 20px 35px;
+      }
+    }
+  }
+  @media screen and (max-width: 475px) {
+    .home {
+      padding: 15px;
+      .home__inner {
+        padding: 10px 25px;
+      }
+    }
+  }
+  

@@ -1,0 +1,106 @@
+.buyers {
+  @include adjust_container;
+  .buyers__inner {
+    overflow-x: auto;
+    .buyers__count-panel {
+      margin-bottom: 15px;
+      color: $custom_black;
+      .buyers__count-panel-buttons {
+        display: flex;
+        button {
+          background-color: $main_color;
+          border: 1px solid $main_color_hover;
+          color: white;
+          padding: 10px 24px;
+          cursor: pointer; 
+          transition: 0.2s;
+          &:not(:last-child) {
+            border-right: none;
+          }
+          &:hover {
+            background-color: $main_color_hover;
+          }
+        }
+      }
+    }
+    .buyers__name-filter {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+    .buyers__table {
+      font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      color: $custom_black;
+      width: 100%;
+      background: white;  
+      .buyers__table_link{
+        color: $custom_black;
+        display: block;
+        text-decoration: none;
+      }
+      tr {
+        &:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        &:hover {
+          background-color: #ddd;
+        }
+        td,
+        th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: $main-color;
+          color: white;
+        }
+      }
+    }
+    .buyers__pagination {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      button {
+        background-color: white;
+        border: none;
+        color: black;
+         cursor: pointer;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        &:hover:not(.active) {background-color: #ddd;}
+      }
+      button.active {
+        background-color:$main_color;
+        color: white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .buyers {
+    margin-left: 0;
+    padding: 20px 35px;
+    .buyers__inner {
+      .buyers__table {
+        
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 475px) {
+  .buyers {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,111 @@
+.autoruzation {
+  padding: 100px 200px;
+  .autoruzation__inner {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    form {
+      input[type='text'],
+      input[type='password'] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+
+      input[type='submit'] {
+        background-color: $main_color;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+        
+        &:hover {
+          background-color: $main_color_hover;
+        }
+      }
+    }
+
+    .autoruzation__message {
+       
+      display: block;
+      background: #f1f1f1;
+      color: $custom_black;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+      p {
+        padding: 2px 35px;
+        font-size: 18px;
+      }
+      .valid {
+        color: rgb(16, 145, 16);
+        &:before {
+          position: relative;
+          left: -35px;
+          content: '✔';
+        }
+      }
+
+      .invalid {
+        color: #f20f0f;
+        &:before {
+          position: relative;
+          left: -35px;
+          content: '✖';
+        }
+      }
+    }
+    .authorization__error-modal {
+      display: flex;
+      position: fixed;
+      z-index: 1;
+
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.4);
+      .authorization__error-modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        margin-top: 200px;
+        padding: 20px 20px;
+        border: 1px solid #888;
+        width: 80%;
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          &:hover,
+          &:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .autoruzation{
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .autoruzation{
+    padding: 15px;
+  }
+}

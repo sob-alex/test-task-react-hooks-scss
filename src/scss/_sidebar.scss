@@ -1,0 +1,121 @@
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100%;
+  background-color: #f1f1f1;
+  overflow: auto;
+  border-right: 1px solid #ccc;
+
+  .sidebar__link {
+    padding: 16px;
+    text-decoration: none;
+  }
+  .sidebar__element {
+    display: block;
+    background: $custom_black;
+    color: #eee;
+    transition: 0.2s;
+  }
+  .sidebar__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f2;
+    padding: 12px;
+
+    img {
+      border-radius: 100%;
+      width: 100%;
+    }
+  }
+  .sidebar__footer {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    background: $custom_black;
+    .sidebar__footer-inner {
+      color: #f2f2f2;
+      text-align: center;
+      flex: 100%;
+      background-color: #3a3a3a;
+      padding: 15px;
+    }
+  }
+  .sidebar__link.active {
+    background-color: $main_color;
+    color: white;
+   
+  }
+  .sidebar__link:hover:not(.active) {
+    background-color: $hover_color;
+    color: rgb(255, 255, 255);
+  }
+}
+
+.content {
+  padding: 1px 16px;
+  height: 1000px;
+  margin-left: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 60px;
+    .sidebar__link {
+      line-height: 60px;
+    
+    }
+    .sidebar__avatar {
+      padding: 5px;
+      background: $custom_black;
+      img {
+        width: 50px;
+
+        border-radius: 100%;
+      }
+    }
+    .sidebar__footer {
+      width: 100%;
+      justify-content: flex-end;
+      .sidebar__footer-inner {
+        flex: initial;
+        padding: 0 15px;
+        line-height: 60px;
+        background-color: initial;
+        color: #eee;
+      }
+    }
+  }
+  .content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .sidebar {
+    flex-direction: column;
+    height: auto;
+    .sidebar__avatar {
+      background-color: #1a1a1a;
+    }
+    .sidebar__element {
+      width: 100%;
+      text-align: center;
+    }
+    .sidebar__link {
+      line-height: normal;
+    }
+    .sidebar__footer {
+      .sidebar__footer-inner {
+        width: 100%;
+      }
+    }
+  }
+}

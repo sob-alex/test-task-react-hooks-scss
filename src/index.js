@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import AppState from './context/AppState';
+import DataState from './context/DataState';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppState>
+      <DataState>
+        <App />
+      </DataState>
+    </AppState>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,30 @@
+.page-404 {
+  @include adjust_container;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .page-404__inner {
+    padding: 35px 150px;
+    padding-left: 100px;
+    background-color: white;
+    border: 0.5px solid #ccc;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-404 {
+    margin-left: 0;
+    padding: 20px 35px;
+    .page-404__inner {
+      padding: 20px 35px;
+    }
+  }
+}
+@media screen and (max-width: 475px) {
+  .page-404 {
+    padding: 15px;
+    .page-404__inner {
+      padding: 10px 25px;
+    }
+  }
+}
